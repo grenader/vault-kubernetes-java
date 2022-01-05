@@ -12,7 +12,9 @@ We assume that the file holds a Vault secret received via Vault Agent sidecar co
 - Example with custom secret data (database-config.txt)  - http://localhost:8080/secret/database-config.txt
 
 ## Run the app
+```
 SECRETS_LOCATION=/tmp ./gradlew bootRun
+```
 
 ## Test the app
 ```
