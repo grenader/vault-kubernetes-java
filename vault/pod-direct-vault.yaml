@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: direct-vault
+  labels:
+    app: direct-vault
+spec:
+  serviceAccountName: internal-app
+  containers:
+    - name: app
+      image: burtlo/devwebapp-ruby:k8s
+      env:
+        - name: VAULT_ADDR
+          value: "http://$EXTERNAL_VAULT_ADDR:8200"
+        - name: VAULT_TOKEN
+          value: "$VAULT_ACCESS_TOKEN"
